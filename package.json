@@ -1,0 +1,41 @@
+{
+  "name": "webapp-pub",
+  "preferGlobal": "true",
+  "version": "0.0.1",
+  "author": "Patrick Boos <mail@pboos.ch>",
+  "description": "test and publish your jade/coffeescript/less webapps to Amazon S3",
+  "contributors": [],
+  "bin": {
+    "webapp-pub": "./bin/webapp-pub"
+  },
+  "scripts": {
+    "test": "make tests"
+  },
+  "main": "./lib/webapp-pub",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pboos/webapp-pub.git"
+  },
+  "keywords": [
+    "jade",
+    "coffeescript",
+    "aws",
+    "s3",
+    "webapp"
+  ],
+  "dependencies" : {
+
+  },
+  "noAnalyze": true,
+  "devDependencies": {
+    "mocha": "1.0.1",
+    "should" :  "0.6.1",
+    "coffee-script": "1.3.1"
+  },
+  "bundleDependencies": [
+  ],
+  "license": "MIT",
+  "engine": {
+    "node": ">=0.4"
+  }
+}
