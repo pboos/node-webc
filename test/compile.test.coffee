@@ -2,6 +2,7 @@ folder = '_data'
 publisher = require('../index')
 path = require('path')
 fs = require('fs')
+should = require('should')
 
 dataPath = __dirname + '/_data'
 outputPath = dataPath + '/_output'
@@ -11,13 +12,19 @@ describe 'Compile all', () ->
   beforeEach ->
     deleteFolderSync outputPath
 
-  it 'should compile jade files', (done) ->
-    publisher.run({ path: dataPath, output: outputPath })
+  it 'should compile coffee-script files', (done) ->
+    publisher.run { path: dataPath, output: outputPath }, (err) ->
+      should.not.exist err
+      path.existsSync(outputPath).should.equal true
+      path.existsSync(outputPath + '/example.js').should.equal true, 'example.js'
+      done()
 
-    path.existsSync(outputPath).should.equal true
-    path.existsSync(outputPath + '/example.html').should.equal true
-    path.existsSync(outputPath + '/example.js').should.equal true
-    done()
+  it 'should compile jade files', (done) ->
+    publisher.run { path: dataPath, output: outputPath }, (err) ->
+      should.not.exist err
+      path.existsSync(outputPath).should.equal true
+      path.existsSync(outputPath + '/example.html').should.equal true, 'example.html'
+      done()
 
 
 deleteFolderSync = (folder) ->
@@ -31,3 +38,4 @@ deleteFolderSync = (folder) ->
           fs.unlinkSync(file)
         else if stats.isDirectory()
           deleteFolderSync(file)
+    fs.rmdirSync(folder)
