@@ -26,6 +26,14 @@ describe 'Compile all', () ->
       path.existsSync(outputPath + '/example.html').should.equal true, 'example.html'
       done()
 
+  it 'should copy other files', (done) ->
+    publisher.run { path: dataPath, output: outputPath }, (err) ->
+      should.not.exist err
+      path.existsSync(outputPath).should.equal true
+      path.existsSync(outputPath + '/images/nodejs.png').should.equal true, '/images/nodejs.png'
+      done()
+
+
 
 deleteFolderSync = (folder) ->
   if path.existsSync(folder)
