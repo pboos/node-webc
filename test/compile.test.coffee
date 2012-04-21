@@ -26,6 +26,13 @@ describe 'Compile all', () ->
       path.existsSync(outputPath + '/example.html').should.equal true, 'example.html'
       done()
 
+  it 'should compile less files', (done) ->
+    publisher.run { path: dataPath, output: outputPath }, (err) ->
+      should.not.exist err
+      path.existsSync(outputPath).should.equal true
+      path.existsSync(outputPath + '/stylesheets/style.css').should.equal true, '/stylesheets/style.css'
+      done()
+
   it 'should copy other files', (done) ->
     publisher.run { path: dataPath, output: outputPath }, (err) ->
       should.not.exist err
