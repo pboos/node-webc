@@ -1,5 +1,5 @@
 folder = '_data'
-publisher = require('../lib/webc')
+webc = require('../lib/webc')
 path = require('path')
 fs = require('fs')
 util = require('util')
@@ -14,28 +14,28 @@ describe 'Compile', () ->
     deleteSync outputPath
 
   it 'should compile coffee-script files', (done) ->
-    publisher.compile { path: dataPath, output: outputPath }, (err) ->
+    webc.compile { path: dataPath, output: outputPath }, (err) ->
       should.not.exist err
       path.existsSync(outputPath).should.equal true
       path.existsSync(outputPath + '/example.js').should.equal true, 'example.js'
       done()
 
   it 'should compile jade files', (done) ->
-    publisher.compile { path: dataPath, output: outputPath }, (err) ->
+    webc.compile { path: dataPath, output: outputPath }, (err) ->
       should.not.exist err
       path.existsSync(outputPath).should.equal true
       path.existsSync(outputPath + '/example.html').should.equal true, 'example.html'
       done()
 
   it 'should compile less files', (done) ->
-    publisher.compile { path: dataPath, output: outputPath }, (err) ->
+    webc.compile { path: dataPath, output: outputPath }, (err) ->
       should.not.exist err
       path.existsSync(outputPath).should.equal true
       path.existsSync(outputPath + '/stylesheets/style.css').should.equal true, '/stylesheets/style.css'
       done()
 
   it 'should copy other files', (done) ->
-    publisher.compile { path: dataPath, output: outputPath }, (err) ->
+    webc.compile { path: dataPath, output: outputPath }, (err) ->
       should.not.exist err
       path.existsSync(outputPath).should.equal true
       path.existsSync(outputPath + '/images/nodejs.png').should.equal true, '/images/nodejs.png'
@@ -43,7 +43,7 @@ describe 'Compile', () ->
 
   it 'should not have an error, if output folder exists already', (done) ->
     fs.mk
-    publisher.compile { path: dataPath, output: outputPath }, (err) ->
+    webc.compile { path: dataPath, output: outputPath }, (err) ->
       should.not.exist err
       path.existsSync(outputPath).should.equal true
       path.existsSync(outputPath + '/images/nodejs.png').should.equal true, '/images/nodejs.png'
