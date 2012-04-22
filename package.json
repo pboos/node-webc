@@ -1,48 +1,32 @@
 {
-  "name": "webc",
-  "preferGlobal": "true",
-  "version": "0.1.0",
-  "author": "Patrick Boos <mail@pboos.ch>",
-  "description": "test and publish your jade/coffeescript/less webapps to Amazon S3",
-  "contributors": [],
-  "bin": {
-    "webc": "./bin/webc"
-  },
-  "scripts": {
-    "test": "make tests"
-  },
-  "main": "./lib/webc",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/pboos/webc.git"
-  },
-  "keywords": [
-    "jade",
-    "coffeescript",
-    "less",
-    "aws",
-    "s3",
-    "webapp",
-    "compile"
-  ],
-  "dependencies" : {
-    "coffee-script": "1.3.1",
-    "jade": "0.25.0",
-    "recess": "1.0.3",
-    "async": "0.1.18",
-    "underscore": "1.3.3",
-    "connect": "2.1.3",
-    "commander": "0.6.0"
-  },
-  "noAnalyze": true,
-  "devDependencies": {
-    "mocha": "1.0.1",
-    "should" :  "0.6.1"
-  },
-  "bundleDependencies": [
-  ],
-  "license": "MIT",
-  "engine": {
+    "name": "webc"
+  , "preferGlobal": "true"
+  , "version": "0.1.0"
+  , "author": "Patrick Boos <mail@pboos.ch>"
+  , "description": "compile and test your jade/coffeescript/less webapps"
+  , "contributors": []
+  , "bin": { "webc": "./bin/webc" }
+  , "scripts": { "test": "make tests" }
+  , "main": "./lib/webc"
+  , "repository": {"type": "git", "url": "https://github.com/pboos/webc.git"}
+  , "keywords": ["jade", "coffeescript", "less", "aws", "s3", "webapp", "compile"]
+  , "dependencies" : {
+      "coffee-script": "1.3.1"
+    , "jade": "0.25.0"
+    , "recess": "1.0.3"
+    , "async": "0.1.18"
+    , "underscore": "1.3.3"
+    , "connect": "2.1.3"
+    , "commander": "0.6.0"
+    }
+  , "devDependencies": {
+      "mocha": "1.0.1"
+    , "should" :  "0.6.1"
+    }
+  , "noAnalyze": true
+  , "bundleDependencies": []
+  , "license": "MIT"
+  , "engine": {
     "node": ">=0.4"
-  }
+    }
 }
