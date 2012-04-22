@@ -1,5 +1,5 @@
 folder = '_data'
-publisher = require('../index')
+publisher = require('../lib/webc')
 path = require('path')
 fs = require('fs')
 util = require('util')

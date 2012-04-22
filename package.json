@@ -1,27 +1,29 @@
 {
-  "name": "webapp-pub",
+  "name": "webc",
   "preferGlobal": "true",
   "version": "0.0.1",
   "author": "Patrick Boos <mail@pboos.ch>",
   "description": "test and publish your jade/coffeescript/less webapps to Amazon S3",
   "contributors": [],
   "bin": {
-    "webapp-pub": "./bin/webapp-pub"
+    "webc": "./bin/webc"
   },
   "scripts": {
     "test": "make tests"
   },
-  "main": "./lib/webapp-pub",
+  "main": "./lib/webc",
   "repository": {
     "type": "git",
-    "url": "https://github.com/pboos/webapp-pub.git"
+    "url": "https://github.com/pboos/webc.git"
   },
   "keywords": [
     "jade",
     "coffeescript",
+    "less",
     "aws",
     "s3",
-    "webapp"
+    "webapp",
+    "compile"
   ],
   "dependencies" : {
     "coffee-script": "1.3.1",

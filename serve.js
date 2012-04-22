@@ -1,4 +1,4 @@
-var publisher = require('./index');
+var publisher = require('./lib/webc');
 
 var dataPath = __dirname + '/test/_data';
 var outputPath = dataPath + '/_output';
