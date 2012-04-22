@@ -1,0 +1,57 @@
+#!/usr/bin/env node
+
+var webc = require('../lib/webc')
+  , program = require('commander');
+
+var options = {
+    input: process.cwd()
+  , output: process.cwd() + '/_output'
+};
+
+program
+  .version(webc.version)
+  .usage('[compile|watch|serve]')
+  .option('-o, --out <path>', 'compile files into specified output folder')
+  .option('-p, --port <port>', 'specify port for serve');
+
+program
+  .command('compile')
+  .description('compile files to the output directory')
+  .action(function(){
+    options.output = program.out || options.output;
+
+    webc.compile(options, function(err) {
+      if (err) { return console.log('Compile error: ' + err); }
+
+      console.log('Compiled files to ' + options.output);
+    });
+  });
+
+program
+  .command('watch')
+  .description('compiles all files and compiles them if changes happen')
+  .action(function(){
+    options.output = program.out || options.output;
+    webc.watch(options, function(err) {
+      if (err) { return console.log('Compile error: ' + err); }
+
+      console.log('Compiled files to ' + options.output);
+      console.log('Watching for changes...');
+    });
+  });
+
+program
+  .command('serve')
+  .description('as watch, but serves the files on http://localhost:3000')
+  .action(function(){
+    options.output = program.out || options.output;
+    options.port = program.port || options.output;
+    webc.serve(options, function(err) {
+      if (err) { return console.log('Compile error: ' + err); }
+
+      console.log('Compiled files to ' + options.output);
+      console.log('Serving files on http://localhost:' + options.port);
+    });
+  });
+
+program.parse(process.argv);
