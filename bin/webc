@@ -6,6 +6,7 @@ var webc = require('../lib/webc')
 var options = {
     input: process.cwd()
   , output: process.cwd() + '/_output'
+  , port: 3000
 };
 
 program
@@ -45,7 +46,7 @@ program
   .description('as watch, but serves the files on http://localhost:3000')
   .action(function(){
     options.output = program.out || options.output;
-    options.port = program.port || options.output;
+    options.port = program.port || options.port;
     webc.serve(options, function(err) {
       if (err) { return console.log('Compile error: ' + err); }
 
